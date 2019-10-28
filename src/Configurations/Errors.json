@@ -1,0 +1,5 @@
+{
+     "NoArguments": "You must provide some arguments!",
+     "NoMention": "You must mention someone!",
+     "UserExistance": "That user is not in the guild!"
+}
