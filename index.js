@@ -4,10 +4,11 @@ const {
     login,
     Collection
 } = require('discord.js');
+const WRATH_TOKEN = process.env;
 // First we create the client
 const client = new Client();
 // Next we login and grab our token straight from our file so that it is not saved anywhere on the bot.
-client.login(require('./src/Configurations/Config.json').token);
+client.login(process.env.WRATH_TOKEN);
 // Here we make new collections for all of the commands
 client.triggers = new Collection();
 client.commands = new Collection();
