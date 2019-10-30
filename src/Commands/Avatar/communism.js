@@ -1,6 +1,6 @@
 const { RichEmbed } = require('discord.js');
 const snekfetch = require("snekfetch");
-const dankAPI = require('../../../src/Configurations/Config.json');
+const dankAPI = require('../../../src/Configurations/Config.json').dankAPI;
 module.exports = {
     Triggers: ['communism'],
     Description: 'Communism.',
@@ -28,7 +28,7 @@ module.exports = {
       message.channel.startTyping();
       snekfetch.get(url, {
           headers: {
-              "Authorization": "237d72f39b3dcadd6ef42e126c23e41992c910063ac50494fb3dd03a50bc6dc6"
+              "Authorization": dankAPI
           }
       }).then(async res => {
           await message.channel.send({   

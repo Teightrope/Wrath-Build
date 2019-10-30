@@ -2,10 +2,10 @@ const { RichEmbed } = require('discord.js');
 const snekfetch = require("snekfetch");
 const dankAPI = require('../../../src/Configurations/Config.json').dankAPI;
 module.exports = {
-    Triggers: ['airpods'],
-    Description: 'DUDE WATCH OUT! OH NO THEY HAVE AIRPODS ON!!',
+    Triggers: ['brain'],
+    Description: 'Big brain time.',
     Category: 'avatar_edit',
-    Usage: '{c} [user]',
+    Usage: '{c} [text]',
     Permissions: {
       User: [],
       Bot: ['SEND_MESSAGES']
@@ -19,11 +19,12 @@ module.exports = {
       },
     },
     Run: async (client, message, paramaters) => {
-      let target = message.mentions.users.first() || message.author;
-      let avatar = target.avatarURL;
-      let url = `https://dankmemer.services/api/airpods?avatar1=${avatar}`;
-  
-      console.log(target.avatarURL)
+      let text = paramaters.join(" "); 
+
+      if(!text) return message.channel.send(`Missing arguments. You need four items to use this command (split by commas).`)
+
+      let url = `https://dankmemer.services/api/brain?text=${text}`;
+
   
       message.channel.startTyping();
       snekfetch.get(url, {
@@ -34,7 +35,7 @@ module.exports = {
           await message.channel.send({   
             files: [{
                   attachment: res.body,
-                  name: 'airpods.png'
+                  name: 'brain.png'
               }]
           }).then(() => message.channel.stopTyping());
       }).catch(err => console.error(err));
